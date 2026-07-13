@@ -1,0 +1,39 @@
+{@io.quarkiverse.roq.frontmatter.runtime.model.Page page}
+{@io.quarkiverse.roq.frontmatter.runtime.model.Site site}
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{#seo page site /}
+<meta name="theme-color" content="#0E1726">
+<meta property="og:image" content="{site.url('/og-image.png')}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="{site.url('/favicon.ico')}" sizes="32x32">
+<link rel="icon" href="{site.url('/favicon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{site.url('/favicon-180x180.png')}">
+<link rel="preload" href="{site.url('/fonts/space-grotesk-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{site.url('/fonts/inter-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{site.url('/css/main.css')}">
+</head>
+<body>
+<main id="main">
+{#insert /}
+</main>
+<footer class="site-footer">
+    <div class="footer-inner">
+        <img class="footer-mark" src="{site.url('/assets/brand/logomark.svg')}" alt="" width="40" height="40">
+        <dl class="footer-legal">
+            <div><dt>Company</dt><dd>Great Southern Software Pty&nbsp;Ltd</dd></div>
+            <div><dt>ABN</dt><dd>11 700 174 787</dd></div>
+            <div><dt>ACN</dt><dd>700 174 787</dd></div>
+            <div><dt>Registered office</dt><dd>Level 1, 63&ndash;73 Ann Street, Surry Hills NSW 2010</dd></div>
+            <div><dt>Contact</dt><dd><a href="mailto:hello@greatsouthernsoftware.com.au">hello@greatsouthernsoftware.com.au</a></dd></div>
+            <div><dt>Code</dt><dd><a href="https://github.com/Great-Southern-Software" rel="me">github.com/Great-Southern-Software</a></dd></div>
+        </dl>
+        <p class="footer-note">&copy; 2026 Great Southern Software Pty&nbsp;Ltd</p>
+    </div>
+</footer>
+</body>
+</html>

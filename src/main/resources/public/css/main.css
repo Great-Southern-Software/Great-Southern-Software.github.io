@@ -1,0 +1,246 @@
+/* Great Southern Software — greatsouthernsoftware.com.au
+   Dark-first. One warm colour (star gold); everything else stays cold. */
+
+:root {
+  --gss-ink:       #0E1726;
+  --gss-star:      #E8B04B;
+  --gss-sightline: #8FB8D9;
+  --gss-paper:     #F4F6F8;
+  --gss-muted:     #5F7182;
+
+  /* derived, still inside the five-colour system */
+  --gss-ink-raised: #16233A;          /* ink lightened for cards/hairlines */
+  --gss-paper-dim:  #C7D2DC;          /* paper knocked back for body copy on ink */
+
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  --measure: 34rem;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/space-grotesk-latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--gss-ink);
+  color: var(--gss-paper-dim);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--gss-paper);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gss-muted);
+  margin: 0 0 1.5rem;
+}
+
+a {
+  color: var(--gss-sightline);
+  text-decoration-color: color-mix(in srgb, var(--gss-sightline) 40%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+a:hover { text-decoration-color: var(--gss-sightline); }
+
+:focus-visible {
+  outline: 2px solid var(--gss-star);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- Hero ---------------------------------------------------------- */
+
+.hero {
+  text-align: center;
+  padding: clamp(4rem, 14vh, 8rem) 0 5rem;
+}
+
+.lockup {
+  width: min(300px, 70vw);
+  height: auto;
+}
+
+.hero .lede {
+  max-width: var(--measure);
+  margin: 2.5rem auto 0;
+  font-size: 1.125rem;
+}
+
+/* The one considered moment: sightlines draw in, stars arrive, wordmark
+   settles. Runs once on load; skipped entirely under reduced motion. */
+
+.sightline {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.s1 { animation-delay: 0.25s; }
+.s2 { animation-delay: 0.55s; }
+.s3 { animation-delay: 0.85s; }
+
+.star {
+  opacity: 0;
+  animation: arrive 0.45s cubic-bezier(0.2, 0, 0.2, 1.4) forwards;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.t1 { animation-delay: 0.15s; }
+.t3 { animation-delay: 0.45s; }
+.t4 { animation-delay: 0.6s; }
+.t2 { animation-delay: 0.75s; }
+.t5 { animation-delay: 0.95s; }
+
+.wordmark {
+  opacity: 0;
+  animation: settle 0.8s ease-out 1.1s forwards;
+}
+
+@keyframes draw   { to { stroke-dashoffset: 0; } }
+@keyframes arrive { from { opacity: 0; transform: scale(0.4); }
+                    to   { opacity: 1; transform: scale(1); } }
+@keyframes settle { from { opacity: 0; transform: translateY(6px); }
+                    to   { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sightline, .star, .wordmark {
+    animation: none;
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---- Sections ------------------------------------------------------ */
+
+.products, .studio {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--gss-ink-raised);
+}
+
+.studio { padding-bottom: 5rem; }
+
+.studio p { max-width: var(--measure); margin: 0; }
+
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.product {
+  background: var(--gss-ink-raised);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+}
+
+.product h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.product h3 a {
+  color: var(--gss-paper);
+  text-decoration: none;
+}
+
+.product h3 a:hover { color: var(--gss-star); }
+
+.product p { margin: 0; max-width: var(--measure); }
+
+.product-meta { margin-top: 0.75rem; font-size: 0.9375rem; }
+
+/* ---- 404 ------------------------------------------------------------ */
+
+.hero-404 h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 2rem 0 0;
+}
+
+.hero-404 .lede { margin-top: 1rem; }
+
+/* ---- Footer --------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--gss-ink-raised);
+  padding: 3rem 1.5rem 4rem;
+}
+
+.footer-inner { max-width: 42rem; margin: 0 auto; }
+
+.footer-mark { display: block; margin-bottom: 1.5rem; }
+
+.footer-legal {
+  margin: 0;
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9375rem;
+}
+
+.footer-legal div { display: flex; gap: 0.75rem; }
+
+.footer-legal dt {
+  color: var(--gss-muted);
+  min-width: 9rem;
+  flex-shrink: 0;
+}
+
+.footer-legal dd { margin: 0; }
+
+.footer-note {
+  margin: 2rem 0 0;
+  font-size: 0.875rem;
+  color: var(--gss-muted);
+}
+
+@media (max-width: 480px) {
+  .footer-legal div { flex-direction: column; gap: 0; }
+  .footer-legal div + div { margin-top: 0.6rem; }
+  .product { padding: 1.5rem 1.25rem; }
+}
