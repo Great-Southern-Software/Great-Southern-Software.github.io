@@ -170,6 +170,14 @@ a:hover { text-decoration-color: var(--gss-sightline); }
   background: var(--gss-ink-raised);
   border-radius: 10px;
   padding: 1.75rem 2rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.product-icon {
+  margin-top: 0.2rem;
 }
 
 .product h3 {
