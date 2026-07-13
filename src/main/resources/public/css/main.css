@@ -153,14 +153,10 @@ a:hover { text-decoration-color: var(--gss-sightline); }
 
 /* ---- Sections ------------------------------------------------------ */
 
-.products, .studio {
-  padding: 3.5rem 0;
+.products {
+  padding: 3.5rem 0 5rem;
   border-top: 1px solid var(--gss-ink-raised);
 }
-
-.studio { padding-bottom: 5rem; }
-
-.studio p { max-width: var(--measure); margin: 0; }
 
 .product-list {
   list-style: none;
