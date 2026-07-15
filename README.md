@@ -1,4 +1,4 @@
-# Great Southern Software — company site
+# Great Southern Software - company site
 
 Company front door for [Great Southern Software](https://greatsouthernsoftware.com.au),
 built with [Quarkus Roq](https://iamroq.dev/) and deployed to GitHub Pages at
@@ -10,13 +10,13 @@ The GitHub repository must be named exactly `Great-Southern-Software.github.io`
 
 ## Layout
 
-- `src/main/resources/content/` — pages (`index.html`, `404.html`)
-- `src/main/resources/templates/layouts/` — Qute layouts (`default.html`)
-- `src/main/resources/public/` — static assets served as-is (CSS, fonts, brand
+- `src/main/resources/content/` - pages (`index.html`, `404.html`)
+- `src/main/resources/templates/layouts/` - Qute layouts (`default.html`)
+- `src/main/resources/public/` - static assets served as-is (CSS, fonts, brand
   assets, favicons, `CNAME`)
 
 Brand assets and the brand guide live in `src/main/resources/public/assets/brand/`.
-Fonts (Space Grotesk, Inter — both SIL OFL) are self-hosted variable woff2 files;
+Fonts (Space Grotesk, Inter - both SIL OFL) are self-hosted variable woff2 files;
 no third-party requests, no analytics, no cookies.
 
 ## Local dev
